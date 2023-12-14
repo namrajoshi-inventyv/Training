@@ -20,12 +20,12 @@ body, html {
 }
 
 .circle {
-    width: 150px; /* Adjust the size of the circle as needed */
-    height: 150px; /* Adjust the size of the circle as needed */
+    width: 150px;
+    height: 150px;
     background-color: #ddd;
     border-radius: 50%;
     overflow: hidden;
-    margin-bottom: 20px; /* Adjust the spacing between the circle and text */
+    margin-bottom: 20px;
 }
 
 .circle img {
@@ -36,8 +36,8 @@ body, html {
 }
 
 .limited-lines {
-    max-height: 3.6em; /* Adjust the max height to fit 3 lines */
-    line-height: 1.2em; /* Adjust the line height to control spacing between lines */
+    max-height: 3.6em;
+    line-height: 1.2em;
     overflow: hidden;
 }
 
@@ -51,8 +51,19 @@ body, html {
     justify-content: center;
 }
 
+.form-container {
+    border: 2px solid #333;
+    border-radius: 5px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .form-switch {
     margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .form-switch input {
@@ -68,14 +79,17 @@ body, html {
     border-radius: 5px;
 }
 
-#login:checked ~ .right-panel #register-form,
-#register:checked ~ .right-panel #login-form {
-    display: block;
+.line {
+    height: 2px;
+    width: 50px;
+    background-color: #333;
+    margin: 0 10px;
 }
 
-#login:checked ~ .right-panel #login-form,
-#register:checked ~ .right-panel #register-form {
-    display: none;
+#login:checked + .form-switch label[for="login"],
+#register:checked + .form-switch label[for="register"] {
+    background-color: #333;
+    color: #fff;
 }
 
 .auth-form {
@@ -107,4 +121,14 @@ body, html {
 
 .auth-form button:hover {
     background-color: #45a049;
+}
+
+#register:checked ~ .center-panel #login-form,
+#login:checked ~ .center-panel #register-form {
+    display: none;
+}
+
+#register:checked ~ .center-panel #register-form,
+#login:checked ~ .center-panel #login-form {
+    display: block;
 }
