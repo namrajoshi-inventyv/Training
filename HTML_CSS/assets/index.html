@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/index.css" type="text/css" rel="stylesheet">
+    <title>HTML</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="center-panel">
+            <div class="circle">
+                <img src="./images/MyPhoto.jpg" alt="Profile Image">
+            </div>
+            <p class="limited-lines">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi assumenda delectus sed architecto sit vitae quis. Placeat aut doloribus molestiae harum neque laudantium, accusantium incidunt commodi itaque est facilis cumque error perspiciatis aperiam repudiandae? Amet consequatur perferendis architecto, itaque dicta perspiciatis fugiat commodi in! Ad, impedit! Illo, earum. Laboriosam, vero?</p>
+        </div>
+        <div class="right-panel">
+            <div class="center-panel">
+                <div class="circle">
+                    <img src="./images/1.jpg" alt="Right Panel Image">
+                </div>
+                <div class="form-switch">
+                    <input type="radio" id="login" name="auth-form" checked>
+                    <label for="login">Login</label>
+                    <input type="radio" id="register" name="auth-form">
+                    <label for="register">Register</label>
+                </div>
+                <form id="login-form" class="auth-form">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+
+                    <button type="submit">Login</button>
+                </form>
+                <form id="register-form" class="auth-form" style="display: none;">
+                    <label for="reg-username">Username:</label>
+                    <input type="text" id="reg-username" name="reg-username" required>
+
+                    <label for="reg-password">Password:</label>
+                    <input type="password" id="reg-password" name="reg-password" required>
+
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
