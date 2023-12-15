@@ -21,40 +21,35 @@
                 Laboriosam, vero?</p>
         </div>
         <div class="right-panel">
-            <div class="center-panel">
-                <div class="circle">
-                    <img src="./images/1.jpg" alt="Right Panel Image">
+            <div class="form-container">
+                <div class="form-switch">
+                    <input type="radio" id="login" name="auth-form" checked>
+                    <label for="login">Login</label>
+                    <input type="radio" id="register" name="auth-form">
+                    <label for="register">Register</label>
+                    <div class="line"></div>
                 </div>
-                <div>
-                    <div class="form-switch">
-                        <input type="radio" id="login" name="auth-form" checked>
-                        <label for="login">Login</label>
-                        <input type="radio" id="register" name="auth-form">
-                        <label for="register">Register</label>
-                        <div class="line"></div>
-                    </div>
-                    <form id="login-form" class="auth-form">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" required>
+                <form id="login-form" class="auth-form">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
 
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
 
-                        <button type="submit">Login</button>
-                    </form>
-                    <form id="register-form" class="auth-form" style="display: none;">
-                        <label for="reg-username">Username:</label>
-                        <input type="text" id="reg-username" name="reg-username" required>
+                    <button type="submit">Login</button>
+                </form>
+                <form id="register-form" class="auth-form" style="display: none;">
+                    <label for="reg-username">Username:</label>
+                    <input type="text" id="reg-username" name="reg-username" required>
 
-                        <label for="reg-password">Password:</label>
-                        <input type="password" id="reg-password" name="reg-password" required>
+                    <label for="reg-password">Password:</label>
+                    <input type="password" id="reg-password" name="reg-password" required>
 
-                        <label for="confirm-password">Confirm Password:</label>
-                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
 
-                        <button type="submit">Register</button>
-                    </form>
-                </div>
+                    <button type="submit">Register</button>
+                </form>
             </div>
         </div>
     </div>
