@@ -18,38 +18,54 @@
                 sed architecto sit vitae quis. Placeat aut doloribus molestiae harum neque laudantium, accusantium
                 incidunt commodi itaque est facilis cumque error perspiciatis aperiam repudiandae? Amet consequatur
                 perferendis architecto, itaque dicta perspiciatis fugiat commodi in! Ad, impedit! Illo, earum.
-                Laboriosam, vero?</p>
+                Laboriosam, vero?
+                
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi assumenda delectus
+                sed architecto sit vitae quis. Placeat aut doloribus molestiae harum neque laudantium, accusantium
+                incidunt commodi itaque est facilis cumque error perspiciatis aperiam repudiandae? Amet consequatur
+                perferendis architecto, itaque dicta perspiciatis fugiat commodi in! Ad, impedit! Illo, earum.
+                Laboriosam, vero?
+            </p>
         </div>
         <div class="right-panel">
             <div class="form-container">
-                <div class="form-switch">
-                    <input type="radio" id="login" name="auth-form" checked>
-                    <label for="login">Login</label>
-                    <input type="radio" id="register" name="auth-form">
-                    <label for="register">Register</label>
-                    <div class="line"></div>
+                <div class="circle-right"">
+                    <img src="./images/MyPhoto.jpg" alt="Profile Image">
+                </div>  
+                <div class='tabs'>
+                    <input type="radio" name="tab" id="tab1" role="tab" checked>
+                    <label for="tab1" id="tab1-label">Log  in</label>
+                    <section aria-labelledby="tab1-label">
+                        <h2>Login</h2>
+                        <form id="login-form" class="auth-form">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" required>
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" required>
+                            
+                            <button type="submit">Login</button>
+                        </form>
+                    </section>
+                    
+                    <!-- Tab 2 & Content -->
+                    <input type="radio" name="tab" id="tab2" role="tab">
+                    <label for="tab2" id="tab2-label">Register</label>
+                    <section aria-labelledby="tab2-label">
+                        <h2>Register</h2>
+                        <form id="register-form" class="auth-form">
+                            <label for="reg-username">Username:</label>
+                            <input type="text" id="reg-username" name="reg-username" required>
+                            
+                            <label for="reg-password">Password:</label>
+                            <input type="password" id="reg-password" name="reg-password" required>
+                            
+                            <label for="confirm-password">Confirm Password:</label>
+                            <input type="password" id="confirm-password" name="confirm-password" required>
+                            
+                            <button type="submit">Register</button>
+                        </form>
+                    </section>
                 </div>
-                <form id="login-form" class="auth-form">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-
-                    <button type="submit">Login</button>
-                </form>
-                <form id="register-form" class="auth-form" style="display: none;">
-                    <label for="reg-username">Username:</label>
-                    <input type="text" id="reg-username" name="reg-username" required>
-
-                    <label for="reg-password">Password:</label>
-                    <input type="password" id="reg-password" name="reg-password" required>
-
-                    <label for="confirm-password">Confirm Password:</label>
-                    <input type="password" id="confirm-password" name="confirm-password" required>
-
-                    <button type="submit">Register</button>
-                </form>
             </div>
         </div>
     </div>
