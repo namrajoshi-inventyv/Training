@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body, html {
     height: 100%;
     margin: 0;
@@ -57,19 +62,23 @@ body, html {
 }
 
 .limited-lines {
-    max-height: 3.6em;
-    line-height: 1.2em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    position: relative;
+    -webkit-line-clamp: 3; /* Adjust the number of lines you want to display */
+    line-height: 1.2em;
+    max-height: 3.6em;
+    text-align: center;
+    overflow: hidden;
 }
 
 .limited-lines::after {
     content: "...";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), #f2f2f2 50%);
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
 }
+
 
 
 .right-panel {
