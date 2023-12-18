@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-}
+} 
 
 body, html {
     height: 100%;
@@ -31,23 +31,23 @@ body, html {
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 20px;
-    box-shadow: 12px 16px 38px 0px rgba(0,0,0,0.75);
+    box-shadow: 12px 16px 38px 0px rgba(0, 0, 0, 0.75);
 }
 
-.circle-right{
-    width: 150px;
-    height: 150px;
+.circle-right {
+    width: 100px;
+    height: 100px;
     background-color: #ddd;
     border-radius: 50%;
     overflow: hidden;
     position: relative;
-    margin-left: 30px;
+    margin-left: 62px;
     margin-bottom: -9px;
     z-index: 1;
-    box-shadow: 12px 16px 38px 0px rgba(0,0,0,0.75);
+    box-shadow: 12px 16px 38px 0px rgba(0, 0, 0, 0.75);
 }
 
-.circle-right img{
+.circle-right img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -65,7 +65,7 @@ body, html {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    -webkit-line-clamp: 3; /* Adjust the number of lines you want to display */
+    -webkit-line-clamp: 3;
     line-height: 1.2em;
     max-height: 3.6em;
     text-align: center;
@@ -78,8 +78,6 @@ body, html {
     width: 100%;
     box-sizing: border-box;
 }
-
-
 
 .right-panel {
     flex: 40%;
@@ -127,8 +125,6 @@ body, html {
     margin: 0 10px;
 }
 
-
-
 .auth-form {
     max-width: 300px;
     width: 100%;
@@ -160,88 +156,62 @@ body, html {
     background-color: #45a049;
 }
 
-#register:checked ~ .center-panel #login-form,
-#login:checked ~ .center-panel #register-form {
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tabs>section {
+    order: 999;
+    width: 100%;
     display: none;
 }
 
-#register:checked ~ .center-panel #register-form,
-#login:checked ~ .center-panel #login-form {
-    display: block;
+.tabs>input {
+    opacity: 0;
+    position: absolute;
 }
 
-/* For debug only */  
-    .tabs {
-      /* Step 1: Enable Flex on the container */
-      display: flex;
-      
-      /* Step 2: Enable flex-wrap to put content section below tab label */
-      flex-wrap: wrap;
-    }
-    .tabs > section {  
-      /* Step 3: Move content <section> to the end, after the tab labels */
-      order: 999;
-      
-      /* Step 4: Make sure the content <section> is 100% width */
-      width: 100%;
-      
-      /* Step 5: Hide all content <section> by default */
-      display: none;
-    }
-    .tabs > input {
-      /* display: none; Don’t use display:none. Bad for accessibility */
-      
-      /* Step 6: Hide the radio inputs */
-      opacity: 0;
-      
-      /* Step 7: Make sure the radio inputs don’t take up space in layout */
-      position: absolute;
-    }
-    /* Step 8: Select the label right next to the selected input */
-    .tabs > input[type=radio]:checked + label {
-      /* Step 9: Highlight the selected label */
-      background: yellow;
-      background: #798f99;
-      padding-left: 33px;
-      padding-right: 34px;
-    }
-    /* Step 10: Select the section right next to the label which is next to the selected input */
-    .tabs > input[type=radio]:checked + label + section {
-      /* Step 11: Unset the 'display:none' we did in step 5 */
-      display: unset;
-    }
-    
-    /* Done. Make sure to disable the debug code at the beginning of CSS. And now it is time to make the tabs look good */
-    
-    /* Make the tabs look good */
-    /* Final Step: Make the tabs pretty with padding and colors */
-    
-    .tabs > label {
-      padding: .5em 1em;
-      background: #b4d5e4;
-      border-right: 1px solid #798f99;
-      padding-left: 34px;
-      padding-right: 34px;
-    }
-    .tabs > label:last-of-type {
-      border-right: none;
-      padding-left: 31px;
-      border-right: none;
-      padding-right: 31px;
-    }
-    .tabs > input[type=radio]:checked + label {
-      background: #798f99;
-      padding-left: 33px;
-      padding-right: 30px;
-    } 
-    
-    .tabs section {
-      border: 1px #798f99 solid;
-      border-top: 5px #798f99 solid;
-      padding: 1em;
-    }
-    
-    
-    body {
-      padding: 2em;
-    }
+.tabs>input[type=radio]:checked+label {
+    background: yellow;
+    background: #798f99;
+    padding-left: 33px;
+    padding-right: 34px;
+}
+
+.tabs>input[type=radio]:checked+label+section {
+    display: unset;
+}
+
+.tabs>label {
+    padding: .5em 1em;
+    background: #b4d5e4;
+    border-right: 1px solid #798f99;
+    padding-left: 34px;
+    padding-right: 34px;
+    cursor: pointer;
+}
+
+.tabs>label:last-of-type {
+    border-right: none;
+    padding-left: 31px;
+    border-right: none;
+    padding-right: 31px;
+}
+
+.tabs>input[type=radio]:checked+label {
+    background: #798f99;
+    padding-left: 33px;
+    padding-right: 30px;
+}
+
+.tabs section {
+    border: 1px #798f99 solid;
+    border-top: 5px #798f99 solid;
+    padding: 1em;
+}
+
+
+body {
+    padding: 2em;
+}
