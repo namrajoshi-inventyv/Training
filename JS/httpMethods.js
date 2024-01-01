@@ -15,8 +15,6 @@ async function fetchData() {
   console.log(result);
 }
 
-// fetchData();
-
 // Function to perform a POST request
 let dataPosted = false;
 async function postData(url, body) {
@@ -81,10 +79,9 @@ async function putData(url, body) {
 
 // Example usage for PUT request
 async function updateClient() {
-  const clientIdToUpdate = "your_client_id_here"; // Replace with the actual client ID
+  const clientIdToUpdate = "59761c233d8d0f92a6b0570d";
   const updatedClientData = {
-    // Update with the fields you want to modify
-    name: "Updated Name",
+    name: "Namra Joshi",
     age: 30,
   };
 
@@ -95,9 +92,74 @@ async function updateClient() {
   console.log("PUT Result:", putResult);
 }
 
+// Function to perform a PATCH request
+async function patchData(url, body) {
+  try {
+    const response = await fetch(url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+// Example usage for PATCH request
+async function partialUpdateClient() {
+  const clientIdToPatch = "59761c23b30d971669fb42ff";
+  const partialClientData = {
+    age: 31,
+    name: "Krushnashray",
+    email: "krushnashray55@gmail.com",
+  };
+
+  const patchResult = await patchData(
+    `http://localhost:3000/clients/${clientIdToPatch}`,
+    partialClientData
+  );
+  console.log("PATCH Result:", patchResult);
+}
+// Function to perform a DELETE request
+async function deleteData(url) {
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+// Example usage for DELETE request
+async function deleteClient() {
+  const clientIdToDelete = "59761c23fcb6254b1a06dad5";
+
+  const deleteResult = await deleteData(
+    `http://localhost:3000/clients/${clientIdToDelete}`
+  );
+  console.log("DELETE Result:", deleteResult);
+}
+
+
 document.getElementById("post").addEventListener("click", async () => {
   await postNewClient();
 });
 document.getElementById("get").addEventListener("click", async () => {
   await fetchData();
+});
+document.getElementById("put").addEventListener("click", async () => {
+  await updateClient();
+});
+document.getElementById("patch").addEventListener("click", async () => {
+  await partialUpdateClient();
+});
+document.getElementById("delete").addEventListener("click", async () => {
+  await deleteClient();
 });
