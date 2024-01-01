@@ -32,6 +32,28 @@
       "email": "acostarobbins@organica.com",
       "phone": "+1 (882) 441-3367",
       "address": "697 Linden Boulevard, Sattley, Idaho, 1035"
+    },
+    {
+      "isActive": true,
+      "age": 28,
+      "name": "John Doe",
+      "gender": "male",
+      "company": "ABC Corp",
+      "email": "johndoe@abc.com",
+      "phone": "+1 (123) 456-7890",
+      "address": "123 Main Street, Anytown, USA",
+      "id": "sSAnqZm"
+    },
+    {
+      "isActive": true,
+      "age": 28,
+      "name": "Neelam Doe",
+      "gender": "female",
+      "company": "ABC Corp",
+      "email": "femaledoe@abc.com",
+      "phone": "+1 (123) 456-7890",
+      "address": "123 Main Street, Anytown, USA",
+      "id": "PIsZ--5"
     }
   ]
 }
