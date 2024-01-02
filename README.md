@@ -12,5 +12,6 @@
 - JavaScript files covering topics like recursion
 - One file demonstrating the use of promises
 - Explore asynchronous programming in JavaScript
+- Usage of htppMethods(Get,Post,Patch,Put,Delete) with http/1.1
 
 Feel free to explore each folder for hands-on learning and development. Happy coding!
