@@ -1,10 +1,25 @@
+function isPrime(num) {
+    if (num <= 1) {
+        return false;
+    }
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
 function getCombinationsWithoutRepetition(number) {
     const digits = number.toString().split('');
-    const result = [];
+    const result = new Set();
 
     function combineWithoutRepetition(arr, length, current = []) {
         if (current.length === length) {
-            result.push(parseInt(current.join('')));
+            const combinedNumber = parseInt(current.join(''));
+            if (isPrime(combinedNumber)) {
+                result.add(combinedNumber);
+            }
             return;
         }
 
@@ -19,9 +34,9 @@ function getCombinationsWithoutRepetition(number) {
         combineWithoutRepetition(digits, len);
     }
 
-    return result;
+    return Array.from(result);
 }
 
-const inputNumber = 3451;
-const combinations = getCombinationsWithoutRepetition(inputNumber);
-console.log(combinations);
+const inputNumber = 1745;
+const primeCombinations = getCombinationsWithoutRepetition(inputNumber);
+console.log(primeCombinations);
