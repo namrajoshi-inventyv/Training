@@ -62,8 +62,8 @@ function generatePascalsTriangle(maxPrime) {
 
 // Function to generate Pascal's Triangle and print prime numbers
 function generatePascalsTriangleAndPrintPrimes() {
-    // const inputNumber = prompt("Enter a number");
-    const inputNumber = 3451;
+    const inputNumber = prompt("Enter a number");
+    // const inputNumber = 3451;
     const primeCombinations = getCombinationsWithoutRepetition(inputNumber);
     const maxPrime = Math.max(...primeCombinations);
     const pascalsTriangle = generatePascalsTriangle(maxPrime);
