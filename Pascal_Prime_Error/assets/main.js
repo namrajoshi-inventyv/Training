@@ -12,31 +12,29 @@ function isPrime(num) {
 }
 
 // Function to get combinations of digits without repetition
-function getCombinationsWithoutRepetition(number) {
-    const digits = number.toString().split('');
-    const result = new Set();
+const result = [];
+function getCombinationsWithoutRepetition(num) {
+    const digits = num.toString().split('');
 
-    function combineWithoutRepetition(arr, length, current = []) {
-        if (current.length === length) {
-            const combinedNumber = parseInt(current.join(''));
-            if (isPrime(combinedNumber)) {
-                result.add(combinedNumber);
-            }
+    function combineWithoutRepetition(nums, path = []) {
+        if (path.length > 0 && parseInt(path.join('')) !== num) {
+            result.push(parseInt(path.join('')));
+        }
+
+        if (path.length === digits.length) {
             return;
         }
 
-        for (let i = 0; i < arr.length; i++) {
-            if (!current.includes(arr[i])) {
-                combineWithoutRepetition(arr, length, current.concat(arr[i]));
-            }
+        for (let i = 0; i < nums.length; i++) {
+            const newNums = nums.filter((_, index) => index !== i);
+            path.push(nums[i]);
+            combineWithoutRepetition(newNums, path);
+            path.pop();
         }
     }
 
-    for (let len = 1; len <= digits.length; len++) {
-        combineWithoutRepetition(digits, len);
-    }
-
-    return Array.from(result);
+    combineWithoutRepetition(digits);
+    return result.filter((n, index) => result.indexOf(n) === index);
 }
 
 // Function to generate Pascal's Triangle up to a given number
@@ -66,7 +64,9 @@ function PascalsTriangleAndPrintPrimes() {
     do {
         inputNumber = prompt("Enter a number with at least 4 digits");
     } while (inputNumber.length < 4);
-    const primeCombinations = getCombinationsWithoutRepetition(inputNumber);
+    let arr = getCombinationsWithoutRepetition(inputNumber);
+    arr = [...new Set(arr)];
+    const primeCombinations = arr.filter(isPrime);
     const maxPrime = Math.max(...primeCombinations);
     const pascalsTriangle = generatePascalsTriangle(maxPrime);
 
@@ -105,10 +105,17 @@ function PascalsTriangleAndPrintPrimes() {
         outputDiv.appendChild(rowElement);
     }
 
-    //Display all the prime numbers combinations
+    //Display all combination
+    const allCombinations = getCombinationsWithoutRepetition(inputNumber);
+    const allCombinationsDiv = document.createElement('div');
+    allCombinationsDiv.innerHTML = `<p style="color: red;">All Combinations of ${inputNumber}:</p>` + allCombinations.join(' ');
+    outputDiv.appendChild(allCombinationsDiv);
+
+    // Display all the prime numbers combinations
     const allPrimeCombinations = getCombinationsWithoutRepetition(inputNumber);
     const allPrimeNumbersDiv = document.createElement('div');
-    allPrimeNumbersDiv.innerHTML = `<p style="color: red;">All Prime Number Combinations:</p>` + allPrimeCombinations.join(' ');
+    const primeNumbersOnly = allPrimeCombinations.filter(isPrime);
+    allPrimeNumbersDiv.innerHTML = `<p style="color: red;">All Prime Number Combinations:</p>` + primeNumbersOnly.join(' ');
     outputDiv.appendChild(allPrimeNumbersDiv);
 
     // Display prime numbers in the browser excluding highlighted ones
@@ -119,8 +126,8 @@ function PascalsTriangleAndPrintPrimes() {
     // Calculate error ratio
     const totalPrimes = primeCombinations.length;
     const remainingPrimesCount = remainingPrimes.length;
-    
-    const errorRatio = (remainingPrimesCount / totalPrimes)*100;
+
+    const errorRatio = (remainingPrimesCount / totalPrimes) * 100;
 
     // Display error ratio
     const errorRatioDiv = document.createElement('div');
@@ -130,5 +137,3 @@ function PascalsTriangleAndPrintPrimes() {
 
 // Call the main function
 PascalsTriangleAndPrintPrimes();
-
-
