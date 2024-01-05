@@ -51,7 +51,7 @@ function generatePascalsTriangle(maxPrime) {
 
             // Check if any element in the row exceeds the maxPrime
             if (triangle[i][j] > maxPrime) {
-                // Remove the entire row and break
+                // Remove the last row
                 triangle.pop();
                 return triangle;
             }
@@ -61,9 +61,11 @@ function generatePascalsTriangle(maxPrime) {
 }
 
 // Function to generate Pascal's Triangle and print prime numbers
-function generatePascalsTriangleAndPrintPrimes() {
-    const inputNumber = prompt("Enter a number");
-    // const inputNumber = 3451;
+function PascalsTriangleAndPrintPrimes() {
+    let inputNumber;
+    do {
+        inputNumber = prompt("Enter a number with at least 4 digits");
+    } while (inputNumber.length < 4);
     const primeCombinations = getCombinationsWithoutRepetition(inputNumber);
     const maxPrime = Math.max(...primeCombinations);
     const pascalsTriangle = generatePascalsTriangle(maxPrime);
@@ -84,6 +86,7 @@ function generatePascalsTriangleAndPrintPrimes() {
             continue;
         }
 
+        // Process each element in the row
         const rowText = row.map(element => {
             // Check if the element is a prime number in the combinations
             if (primeCombinations.includes(element)) {
@@ -102,13 +105,30 @@ function generatePascalsTriangleAndPrintPrimes() {
         outputDiv.appendChild(rowElement);
     }
 
+    //Display all the prime numbers combinations
+    const allPrimeCombinations = getCombinationsWithoutRepetition(inputNumber);
+    const allPrimeNumbersDiv = document.createElement('div');
+    allPrimeNumbersDiv.innerHTML = `<p style="color: red;">All Prime Number Combinations:</p>` + allPrimeCombinations.join(' ');
+    outputDiv.appendChild(allPrimeNumbersDiv);
+
     // Display prime numbers in the browser excluding highlighted ones
     const remainingPrimes = primeCombinations.filter(num => !highlightedPrimes.has(num));
     primeNumbersDiv.innerHTML = `<p style="color : red";>Remaining Prime Numbers:</p>` + remainingPrimes.join(' ');
     outputDiv.appendChild(primeNumbersDiv);
+
+    // Calculate error ratio
+    const totalPrimes = primeCombinations.length;
+    const remainingPrimesCount = remainingPrimes.length;
+    
+    const errorRatio = (remainingPrimesCount / totalPrimes)*100;
+
+    // Display error ratio
+    const errorRatioDiv = document.createElement('div');
+    errorRatioDiv.innerHTML = `<p style="color : red";>Error Ratio: ${errorRatio.toFixed(2)}</p>`;
+    outputDiv.appendChild(errorRatioDiv);
 }
 
 // Call the main function
-generatePascalsTriangleAndPrintPrimes();
+PascalsTriangleAndPrintPrimes();
 
 
